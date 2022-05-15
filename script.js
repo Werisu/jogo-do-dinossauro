@@ -2,6 +2,7 @@ const DINO = document.querySelector(".dino");
 const BACKGROUND = document.querySelector('.background');
 
 let isJumping = false;
+let position = 0;
 
 /**
  * Método para identificar a tecla precionada espaço
@@ -18,7 +19,6 @@ function handleKeyUp(event) {
  * pulo do dinossauro
  */
 function jump() {
-    let position = 0;
     isJumping = true;
 
     /* setInterval: define intervalos, tudo que estiver dentro vai ser executado
@@ -61,6 +61,10 @@ function createCactus() {
         if(cactusPosition < -60){
             clearInterval(leftInterval);
             BACKGROUND.replaceChild(cactus);
+        } else if(cactusPosition > 0 && cactusPosition < 60 && position < 60) {
+            // Game over
+            clearInterval(leftInterval);
+            document.body.innerHTML = '<h1 class="gamer-over">Fim de Jogo</h1>'
         } else {
             cactusPosition -= 10;
             cactus.style.left = cactusPosition + 'px';
