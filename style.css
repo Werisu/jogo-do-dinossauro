@@ -1,11 +1,42 @@
+@font-face {
+    font-family: Gamer;
+    src: url(font/GAMERIA.ttf);
+}
+
 body{
     background-color: #fafafa;
+}
+
+.box{
+    position: relative;
+    min-width: 1000px;
+    min-height: 400px;
+    /* border: 1px solid #f4ff00; */
+    border-radius: 10px;
+}
+
+.title{
+    font-family: Gamer;
+    text-align: center;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dino{
     width: 60px;
     height: 60px;
-    background-image: url(dino.png);
+    
     position: absolute;
     bottom: 0;
 }
@@ -32,6 +63,11 @@ body{
     to{
         background-position: 0;
     }
+}
+
+.box{
+    width: 50%;
+    margin: auto;
 }
 
 .background{

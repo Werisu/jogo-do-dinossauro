@@ -8,7 +8,7 @@ let position = 0;
  * Método para identificar a tecla precionada espaço
  */
 function handleKeyUp(event) {
-    if(event.keyCode === 32){
+    if(event.keyCode === 32 || event.keyCode === 38){
         if(!isJumping){
             jump();
         }
@@ -60,11 +60,11 @@ function createCactus() {
     let leftInterval = setInterval(()=>{
         if(cactusPosition < -60){
             clearInterval(leftInterval);
-            BACKGROUND.replaceChild(cactus);
-        } else if(cactusPosition > 0 && cactusPosition < 60 && position < 60) {
+            BACKGROUND.removeChild(cactus);
+        } else if(cactusPosition > 0 && cactusPosition < 50 && position < 50) {
             // Game over
             clearInterval(leftInterval);
-            document.body.innerHTML = '<h1 class="game-over">Fim de Jogo</h1>'
+            document.querySelector('.box').innerHTML = '<h1 class="game-over">Fim de Jogo</h1>'
         } else {
             cactusPosition -= 10;
             cactus.style.left = cactusPosition + 'px';
